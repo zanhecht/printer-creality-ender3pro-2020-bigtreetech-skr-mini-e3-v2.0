@@ -1,0 +1,4 @@
+## /etc/sudoers.d rule to allow passwordless sudo access to sftp server to allow connections via WinSCP
+#pi ALL=(ALL) NOPASSWD: ALL
+pi ALL=(ALL) NOPASSWD: /bin/su -c /usr/lib/openssh/sftp-server
+

@@ -1,0 +1,5 @@
+## /etc/udev/rules.dl rule to restart klipper when the printer is connected via usb
+## Determine vendor and product id via 'lsusb'
+## After making changes, reload with 'sudo udevadm control --reload-rules'
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="614e", ACTION=="add", RUN+="/usr/bin/logger Printer connected, udev rule triggered"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="614e", ACTION=="add", RUN+="/usr/bin/sudo -u pi /bin/sh -c '/bin/echo RESTART > /tmp/printer'"
